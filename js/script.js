@@ -7,16 +7,17 @@ function(){
     const fasciaDieta = document.getElementById('fasciaDieta').value;
     const prezzxKm = 0.21
 
-    // if((nomeCompleto === null ||  Km === null &&  || fasciaDieta === null  )){
-    //     alert('fill all columns')
-        
-    // }
+     if(!nomeCompleto  ||  isNaN(Km)   || !fasciaDieta  ){
+         alert('Completa tutte le caselle o assicurati ti aver inserito un numero ai Km ')
+          window.location.reload();
+     }
 
    let prezzoTot = Km * prezzxKm
-   console.log(prezzoTot);
 
-   if (fasciaDieta < 18) {
+   if (fasciaDieta === 'Minorenne') {
         prezzoTot = prezzoTot -(prezzoTot *20 / 100)    
-        console.log(prezzoTot); 
+   } else if (fasciaDieta === 'Senior'){
+      prezzoTot = prezzoTot -(prezzoTot *40 / 100)
    }
 });
+
